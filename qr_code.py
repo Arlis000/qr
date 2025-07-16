@@ -20,6 +20,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Program version used for the --version-info argument
+PROGRAM_VERSION = "1.0.0"
+
 class QRCodeGenerator:
     """
     A class for generating QR codes from URLs.
@@ -410,6 +413,12 @@ if __name__ == "__main__":
         choices=['L', 'M', 'Q', 'H'],
         default='H',
         help='Error correction level (L, M, Q, H)'
+    )
+    parser.add_argument(
+        '--version-info',
+        action='version',
+        version=f'%(prog)s {PROGRAM_VERSION}',
+        help="Show program's version number and exit"
     )
 
     # Parse arguments
